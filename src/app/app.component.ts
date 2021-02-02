@@ -27,7 +27,10 @@ export class AppComponent implements OnInit {
   viidespysty: number[]= [4, 9, 14, 19, 24];
   vasylos: number[]= [20, 16, 12, 8, 4];
   oikalas: number[]= [0, 6, 12, 18, 24];
-  bingo: boolean = false;
+
+  bingot: number = 0;
+  compareList = [];
+  filteredCompareList = [];
 
 
   constructor(private objectsService: ObjectsService) { }
@@ -36,12 +39,27 @@ export class AppComponent implements OnInit {
     this.objectsService.getAllObjects().subscribe(
       data => {
       this.objectsList = data;
-      console.log(data);
+
       }, error => {
       console.log('httperror:');
       console.log(error);
       }
     );
+
+    //talletetaan vertailulistat niiden omaan listaan
+    this.compareList.push(this.ylarivi);
+    this.compareList.push(this.tokarivi);
+    this.compareList.push(this.kolmasrivi);
+    this.compareList.push(this.neljasrivi);
+    this.compareList.push(this.viidesrivi);
+    this.compareList.push(this.ekapysty);
+    this.compareList.push(this.tokapysty);
+    this.compareList.push(this.kolmaspysty);
+    this.compareList.push(this.neljaspysty);
+    this.compareList.push(this.viidespysty);
+    this.compareList.push(this.vasylos);
+    this.compareList.push(this.oikalas);
+
   }
 
 
@@ -56,11 +74,14 @@ export class AppComponent implements OnInit {
     this.checkList.push(idNum);
 
     //klikkilista napinpainallusviestejä varten
+
+    if (this.clicks == 0) {alertify.success('Ensimmäinen osuma! Olet etäopetuksessa');
     this.clicks++;
-    if (this.clicks == 1) {alertify.success('Ensimmäinen osuma! Olet etäopetuksessa');}
-    else if (this.clicks == 2 ){
+  }
+    else if (this.clicks == 1 ){
       alertify.success('Toinen osuma! Jatka keskittymistä!');
-    } else {
+      this.clicks++;
+    } else if (this.bingot===0){
       let randomnum = Math.floor(Math.random() * 10);
       if (randomnum == 0){
         alertify.success('Dingdong');
@@ -85,47 +106,71 @@ export class AppComponent implements OnInit {
 
     this.checkCheckList();
 
-
-
-
-
   }
 
-  checkCheckList() {
-if (this.bingo===false) {
-    if( (this.compareLists(this.ylarivi)) ||
-     (this.compareLists(this.tokarivi)) ||
-     (this.compareLists(this.kolmasrivi)) ||
-     (this.compareLists(this.neljasrivi)) ||
-     (this.compareLists(this.viidesrivi)) ||
-     (this.compareLists(this.ekapysty)) ||
-     (this.compareLists(this.tokapysty)) ||
-     (this.compareLists(this.kolmaspysty)) ||
-     (this.compareLists(this.neljaspysty)) ||
-     (this.compareLists(this.viidespysty)) ||
-     (this.compareLists(this.vasylos)) ||
-     (this.compareLists(this.oikalas))
-
-    )
 
 
-    {
-      this.bingo=true;
+bingoAlert(){
+    //BINGO
+
+    this.bingot++;
+    if (this.bingot ===1) {
+
+    alertify.alert().setting({
+      'closable':true,
+      'resizable': true,
+      'transition': 'flipx',
+      'message': 'BINGO!'
+    }).show();
+    } else if (this.bingot===12){
+
+
       alertify.alert().setting({
         'closable':true,
         'resizable': true,
         'transition': 'flipx',
-        'message': 'BINGO!'
+        'message': 'Bingo on tapissa. Huhhuh.'
       }).show();
-    }
-  }
-  }
+     } else {
+      alertify.alert().setting({
+        'closable':true,
+        'resizable': true,
+        'transition': 'flipx',
+        'message': 'TAAS BINGO!'
+      }).show();
+     }
+
+}
 
   compareLists(list: number[]): boolean {
     if (list.every( value => this.checkList.includes(value) )) { return true;}
     else {return false;}
   }
 
+
+  checkCheckList(){
+    this.compareList.forEach(element => {
+
+      if(this.compareLists(element)) {
+        //poistetaan compareListilta se lista, josta saatiin bingo
+        this.removeListFromCompareList(element);
+        this.compareList = this.filteredCompareList;
+
+
+        this.bingoAlert();
+
+    }
+  });
+
 }
 
+removeListFromCompareList(list: number[]) {
+
+//poista lista compareLIstilta!
+ this.filteredCompareList = this.compareList.filter(function(item) {
+  return item !== list
+});
+
+}
+}
 
