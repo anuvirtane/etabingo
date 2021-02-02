@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   viidespysty: number[]= [4, 9, 14, 19, 24];
   vasylos: number[]= [20, 16, 12, 8, 4];
   oikalas: number[]= [0, 6, 12, 18, 24];
+  bingo: boolean = false;
 
 
   constructor(private objectsService: ObjectsService) { }
@@ -91,7 +92,7 @@ export class AppComponent implements OnInit {
   }
 
   checkCheckList() {
-
+if (this.bingo===false) {
     if( (this.compareLists(this.ylarivi)) ||
      (this.compareLists(this.tokarivi)) ||
      (this.compareLists(this.kolmasrivi)) ||
@@ -109,6 +110,7 @@ export class AppComponent implements OnInit {
 
 
     {
+      this.bingo=true;
       alertify.alert().setting({
         'closable':true,
         'resizable': true,
@@ -116,6 +118,7 @@ export class AppComponent implements OnInit {
         'message': 'BINGO!'
       }).show();
     }
+  }
   }
 
   compareLists(list: number[]): boolean {
