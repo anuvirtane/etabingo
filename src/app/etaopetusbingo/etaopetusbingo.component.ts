@@ -10,7 +10,7 @@ import {BingoService} from '../services/bingo.service';
 export class EtaopetusbingoComponent implements OnInit {
 
 
-  objectsSrc= '../../data/objects.json';
+  objectsSrc= 'data/objects.json';
   objectsList: any[];
 
  constructor(private objectsService: ObjectsService, private bingoService: BingoService) { }
