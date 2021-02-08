@@ -10,8 +10,8 @@ export class ObjectsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllObjects(): any {
-    const objects = this.http.get('data/objects.json');
+  getAllObjects( srcOfObjects: string): any {
+    const objects = this.http.get(srcOfObjects);
     console.log(objects);
     return objects;
   }

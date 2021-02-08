@@ -1,0 +1,12 @@
+<main>
+
+<h1 class="m-3 p-3 otsikko">
+  Etäopetuksessa olevan läheisen bingo
+</h1>
+
+<div class="container">
+  <div class="row row-cols-5 bingoalusta">
+    <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-success kortti" (click)="clickSuccess($event)" id={{indexNumber}}>{{ object.name }}</button></div>
+  </div>
+</div>
+</main>

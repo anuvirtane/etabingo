@@ -1,11 +1,3 @@
-<h1 class="m-3 p-3 otsikko">
-  Etäopetusbingo
-</h1>
-
-<div class="container">
-  <div class="row row-cols-5">
-    <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-warning kortti" (click)="clickSuccess($event)" id={{indexNumber}}>{{ object.name }}</button></div>
-  </div>
-</div>
+<router-outlet></router-outlet>
 
 

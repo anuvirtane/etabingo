@@ -1,9 +1,71 @@
 
+
+
 body {
-  background-image: url("./assets/images/Bingo_card.jpg");
+  font-family: 'Patrick Hand SC', cursive;
   background-color: black;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 900px 1000px;
 }
+
+.kortti {
+
+
+  height: 180px;
+  width: 180px;
+
+
+margin: 0rem;
+
+
+}
+
+button:disabled {
+  background-color: gainsboro;
+}
+
+.otsikko {
+  margin-top: 14rem;
+  font-size: 5rem;
+  color: #9c9c20;
+}
+
+.container {
+
+  padding: 6rem;
+  margin: 4rem;
+
+
+}
+
+.bingoalusta {
+  margin-left:-5rem;
+  margin-right:-5rem;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .kortti {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .kortti {
+
+    height: 180px;
+    width: 120px;
+
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+
+  }
+
+  .container {
+
+    width: 180%;
+  }
+}
+

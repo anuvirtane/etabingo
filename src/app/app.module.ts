@@ -7,13 +7,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { Routes, RouterModule } from '@angular/router';
+import { LaheisbingoComponent } from './laheisbingo/laheisbingo.component';
+import { EtaopetusbingoComponent } from './etaopetusbingo/etaopetusbingo.component';
+import { AlkuComponent } from './alku/alku.component';
 
-const appRoutes: Routes = [ {path: '', component: AppComponent}]
+const appRoutes: Routes = [ {path: '', component: AlkuComponent},
+                             {path: 'etaopetusbingo', component: EtaopetusbingoComponent},
+                              {path: 'laheisbingo', component: LaheisbingoComponent},
+                              {path: '**', component: AppComponent},
+                            ]
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LaheisbingoComponent,
+    EtaopetusbingoComponent,
+    AlkuComponent
 
    ],
   imports: [
