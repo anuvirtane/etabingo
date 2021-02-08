@@ -10,7 +10,7 @@ import {BingoService} from '../services/bingo.service';
 
 export class LaheisbingoComponent implements OnInit {
 
-  objectsSrc= '../../data/objects2.json';
+  objectsSrc= 'data/objects2.json';
   objectsList: any[];
 
  constructor(private objectsService: ObjectsService, private bingoService: BingoService) { }
