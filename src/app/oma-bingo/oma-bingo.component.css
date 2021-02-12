@@ -1,13 +1,13 @@
 .container {
-  background-image: url("../../assets/images/bingo-vihr.jpg");
+  background-image: url("../../assets/images/bingo-valk.jpg");
   background-color: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: auto;
-
+  padding: 6rem;
 }
 
 h1 {
-  color: lightgreen;
+  color: white;
 }

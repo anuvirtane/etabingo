@@ -4,6 +4,6 @@ main {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: 900px 1000px;
+  background-size: auto;
 
 }

@@ -5,9 +5,9 @@
   Etäopiskelubingo
 </h1>
 
-<div class="container">
+<section class="container">
   <div class="row row-cols-5">
     <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-warning kortti" (click)="clickSuccess($event)" id={{indexNumber}}>{{ object.name }}</button></div>
   </div>
-</div>
+</section>
 </main>

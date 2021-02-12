@@ -57,7 +57,7 @@ export class BingoService {
 
     //klikkilista napinpainallusviestejä varten
 
-    if (this.clicks == 0) {alertify.success('Ensimmäinen osuma! Olet etäopetuksessa');
+    if (this.clicks == 0) {alertify.success('Ensimmäinen osuma!');
     this.clicks++;
   }
     else if (this.clicks == 1 ){
@@ -76,11 +76,11 @@ export class BingoService {
       } else if (randomnum == 4){
         alertify.success('Olet melkein voittanut!');
       } else if (randomnum == 5){
-        alertify.success('Pitäisikö välillä opiskellakin?');
+        alertify.success('Onko bingo elämän tarkoitus');
       } else if (randomnum == 6){
         alertify.error('Painoitko varmasti oikeaa nappia?');
       } else if (randomnum == 7) {
-        alertify.success('Jaksatko vielä koodata tämän bingon jälkeen?')
+        alertify.success('Jaksatko vielä tehdä muuta tämän bingon jälkeen?')
       } else {
         alertify.success("Hyvää työtä. Välillä pitää bingoilla, että pysyy virkeänä.")
       }

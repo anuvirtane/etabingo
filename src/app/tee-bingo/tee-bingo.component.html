@@ -1,0 +1,19 @@
+<main class="">
+
+
+  <h1 class="m-3 p-3 otsikko">
+  Tee bingo!
+  </h1>
+  <h2 class="text-white m-5">Tässä bingopohjassa on sitaatteja Aristoteleelta. Klikkaa kohtaa, jonka haluat muuttaa omaksi bingo-osumaksesi ja anna oma sisältösi. Julkaise painamalla lopuksi "tallenna ja jaa"-nappia sivun alareunassa.</h2>
+
+  <article class="container">
+    <section class="row row-cols-5">
+      <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-secondary kortti"  (click)="changeContent($event)" id={{indexNumber}}>
+
+        {{object.name}}
+
+      </button></div>
+    </section>
+    <button class="btn btn-primary m-5" (click)="publishBingo()"><h2>Pelaa</h2></button>
+  </article>
+  </main>
