@@ -20,7 +20,7 @@ const appRoutes: Routes = [ {path: '', component: AlkuComponent},
                               {path: 'laheisbingo', component: LaheisbingoComponent},
                               {path: 'tee-bingo', component: TeeBingoComponent},
                               {path: 'oma-bingo/:id', component: OmaBingoComponent},
-                              {path: '**', component: AppComponent},
+                              {path: '**', component: AppComponent}
                             ]
 
 
