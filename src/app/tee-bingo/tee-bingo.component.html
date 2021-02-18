@@ -8,7 +8,7 @@
 
   <article class="container">
     <section class="row row-cols-5">
-      <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-secondary kortti"  (click)="changeContent($event)" id={{indexNumber}}>
+      <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-secondary kortti m-0"  (click)="changeContent($event)" id={{indexNumber}}>
 
         {{object.name}}
 
