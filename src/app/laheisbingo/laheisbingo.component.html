@@ -4,7 +4,7 @@
   Etäopetuksessa olevan läheisen bingo
 </h1>
 
-<section class="container">
+<section class="container-fluid">
   <div class="row row-cols-5 bingoalusta">
     <div class="col"*ngFor="let object of objectsList; let indexNumber = index"><button class="card-body btn alert alert-success kortti" (click)="clickSuccess($event)" id={{indexNumber}}>{{ object.name }}</button></div>
   </div>
